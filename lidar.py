@@ -219,9 +219,7 @@ def checkKeys():
 
 
 import serial
-from xbee import XBee, ZigBee
 ser = serial.Serial(com_port, baudrate)
-xbee = XBee(ser)
 th = thread.start_new_thread(read_Lidar, ())
 
 while True:
