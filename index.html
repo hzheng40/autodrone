@@ -31,7 +31,7 @@
         <h3>
 <a id="progress-update-9262016" class="anchor" href="#progress-update-9262016" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Progress Update 9/26/2016.</h3>
 
-<p>During the summer, I tried to use the Arduino to control the motor on the xv11 lidar and transmit the information via Xbee. Unfortunately, due to the limit of arduino (only one set of Rx/Tx pins), and the format of laser scan data, I wasn't able to receive the lidar information.</p>
+<p>During the summer, I tried to use the Arduino to control the motor on the xv11 lidar and transmit the information via Xbee. Unfortunately, due to the limit of arduino (only one set of Rx/Tx pins), and the format of laser scan data, I wasn't able to receive the lidar information. I'm going to steer the project into another direction. After some research, I realized there are tons of information on using the <a href="http://wiki.ros.org/xv_11_laser_driver/Tutorials/Running%20the%20XV-11%20Node">xv11 lidar with ros</a>, and <a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi">installing ros on Raspberry pi</a>. I decided to use the rpi instead of Arduino. There are several advantages of using rpi: no need for wireless transmission, all the calculations are done on the rpi; the rpi is more flexible for future expansions (different sensors). I also decided to use a flight controller <a href="https://emlid.com/shop/navio2/">Navio2</a> to interact with the motors and escs. Stay tuned for future updates!</p>
 
 <h3>
 <a id="progress-update-672016" class="anchor" href="#progress-update-672016" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Progress Update 6/7/2016</h3>
