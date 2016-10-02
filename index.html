@@ -1,34 +1,33 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Autodrone by hzheng40</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Autodrone</h1>
-        <p></p>
+    <section class="page-header">
+      <h1 class="project-name">Autodrone</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/hzheng40/autodrone" class="btn">View on GitHub</a>
+      <a href="https://github.com/hzheng40/autodrone/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/hzheng40/autodrone/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <p class="view"><a href="https://github.com/hzheng40/autodrone">View the Project on GitHub <small>hzheng40/autodrone</small></a></p>
+    <section class="main-content">
+      <h3>
+<a id="progress-update-10022016" class="anchor" href="#progress-update-10022016" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Progress Update 10/02/2016</h3>
 
+<p><a href="http://i.imgur.com/oE9Bh0k.jpg">Pic!!</a>
+I've assembled most parts of the drone. Except for one little hiccup. The lipo cell only has a jsp connector. But the power module for Navio2 only supports XT60 plugs. I ordered new lipo cells with higher capacity and some new connectors.
+Software-wise, I've tried different images to be flahsed on the mini sd card. Raspbian Jessie with ROS is extremely slow for some reasons. And ArduPilot is not being friendly on the original Raspbian. I don't want to dive into the details of the code to figure out how to make it work. The Image provided by Emlid is a headless(w/o GUI) Debian. But it seems to be my best option now.
+Stay tuned for more updates.</p>
 
-        <ul>
-          <li><a href="https://github.com/hzheng40/autodrone/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/hzheng40/autodrone/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/hzheng40/autodrone">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
+<h3>
 <a id="progress-update-9262016" class="anchor" href="#progress-update-9262016" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Progress Update 9/26/2016.</h3>
 
 <p>During the summer, I tried to use the Arduino to control the motor on the xv11 lidar and transmit the information via Xbee. Unfortunately, due to the limit of arduino (only one set of Rx/Tx pins), and the format of laser scan data, I wasn't able to receive the lidar information. I'm going to steer the project into another direction. After some research, I realized there are tons of information on using the <a href="http://wiki.ros.org/xv_11_laser_driver/Tutorials/Running%20the%20XV-11%20Node">xv11 lidar with ros</a>, and <a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi">installing ros on Raspberry pi</a>. I decided to use the rpi instead of Arduino. There are several advantages of using rpi: no need for wireless transmission, all the calculations are done on the rpi; the rpi is more flexible for future expansions (different sensors). I also decided to use a flight controller <a href="https://emlid.com/shop/navio2/">Navio2</a> to interact with the motors and escs. Stay tuned for future updates!</p>
@@ -42,13 +41,15 @@
 <a id="progress-update-5122016" class="anchor" href="#progress-update-5122016" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Progress Update 5/12/2016.</h3>
 
 <p>Well all the prototyping parts are ordered. I decided to go with the low cost <a href="http://www.hobbyking.com/hobbyking/store/__52863__HobbyKing_Spec_FPV250_V2_Quad_Copter_ARF_Combo_Kit_Mini_Sized_FPV_Multi_Rotor_ARF_.html">fpv 250 kit</a> from hobbyking. It comes with four motors, the ESCs, the battery, the propellers and the chassis. As of the flight controller, I  decided to ditch the idea of using traditional RC since it won't be controlled manually. I went for the Arduino as always. We all know that this isn't the long term solution but hey, it's really good for prototyping. As of communications, I went for <a href="https://www.sparkfun.com/products/13197">the XBee kit</a> from SparkFun. I was originally considering using a camera for the visuals of the drone. The transmission of the video would be a hassle and it wouldn't be fast enough to localize the drone. So I decided using a LIDAR and SLAM would be the fastest way to localize the drone. Now the problem is LIDARs are expensive. There are two solutions I found. One of them is to use the LIDAR LITE V2 from Pulsed Light as the laser range finder. It has a 40 m range and high precision. It costs a little over $100 but it's out of stock everywhere. The other solution was the LIDAR ripped out from the Neato cleaning robot. It has a reasonable size and cost just around $80. I also found documentations on how to use it with Arduino and ROS. I'll update the documentations and details later along the project. So the whole thing comes down to about less than $250. If it works, it's probably the cheapest autonomous drone on the market.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/hzheng40">hzheng40</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/hzheng40/autodrone">Autodrone</a> is maintained by <a href="https://github.com/hzheng40">hzheng40</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+    </section>
+
+  
   </body>
 </html>
